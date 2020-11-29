@@ -14,6 +14,9 @@
         .bar4 {
             fill: #ffa600;
         }
+        .highlight {
+            fill: orange;
+        }
     </style>
     <script src="https://d3js.org/d3.v4.min.js"></script>
 <body>
@@ -105,6 +108,12 @@
          .attr("x", function(d) { return xScale(d.year); })
          .attr("y", function(d) { return yScale(d.val_ma); })
          .attr("width", function (d) { return xScale.bandwidth() * 0.25; })
+         .transition()
+         .ease(d3.easeLinear)
+         .duration(400)
+         .delay(function (d, i) {
+             return i * 50;
+         })
          .attr("height", function(d) { return height - yScale(d.val_ma); });
 
          // edit bars (2)
@@ -115,6 +124,12 @@
           .attr("x", function(d) { return xScale(d.year) + (xScale.bandwidth() * 0.25); })
           .attr("y", function(d) { return yScale(d.val_al); })
           .attr("width", function (d) { return xScale.bandwidth() * 0.25; })
+          .transition()
+          .ease(d3.easeLinear)
+          .duration(400)
+          .delay(function (d, i) {
+              return i * 50;
+          })
           .attr("height", function(d) { return height - yScale(d.val_al); });
 
           // edit bars (3)
@@ -125,6 +140,12 @@
            .attr("x", function(d) { return xScale(d.year) + (xScale.bandwidth() * 0.5); })
            .attr("y", function(d) { return yScale(d.val_tu); })
            .attr("width", function (d) { return xScale.bandwidth() * 0.25; })
+           .transition()
+           .ease(d3.easeLinear)
+           .duration(400)
+           .delay(function (d, i) {
+               return i * 50;
+           })
            .attr("height", function(d) { return height - yScale(d.val_tu); });
 
            // edit bars (4)
@@ -135,6 +156,12 @@
             .attr("x", function(d) { return xScale(d.year) + (xScale.bandwidth() * 0.75); })
             .attr("y", function(d) { return yScale(d.val_eg); })
             .attr("width", function (d) { return xScale.bandwidth() * 0.25; })
+            .transition()
+            .ease(d3.easeLinear)
+            .duration(400)
+            .delay(function (d, i) {
+                return i * 50;
+            })
             .attr("height", function(d) { return height - yScale(d.val_eg); });
     });
 </script>
